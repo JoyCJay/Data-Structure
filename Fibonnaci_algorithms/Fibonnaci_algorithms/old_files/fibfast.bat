@@ -1,0 +1,1 @@
+fibfast.exe > fibfast.txt

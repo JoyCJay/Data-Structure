@@ -1,0 +1,55 @@
+#include   <math.h>
+#include   <string.h>
+#include   <conio.h>
+#include   <iostream.h>
+#include   <fstream.h>
+#include   <stdlib.h>
+#include   <string.h>
+#include   <time.h>
+#include   <stdio.h>
+#include   <dos.h>
+
+
+
+double fibonacci4(int n)
+{
+  double static sr5, phi = 0.0;
+  double static f[9] = {0.0, 1.0, 1.0, 2.0, 3.0, 5.0, 8.0, 13.0, 21.0};
+
+  if (n <= 0)  return 0.0;
+  if (n <= 8)  return f[n];
+  if (phi == 0.0) {
+    sr5 = sqrt( 5.0);
+    phi = 0.5 + sr5 / 2.0;
+  }
+  return  floor( 0.5 + pow( phi, n) / sr5);
+}//end_fibonacci4
+
+/* --------------------------------------------------------------------- */
+/* Find smallest n for which ffib(n) is not exactly correct */
+int test( void)
+{
+  int n;
+  for (n = 2; ; n++) {
+    if (ffib( n) != (ffib( n - 1) + ffib( n - 2))) {
+      return 0;
+    else
+      return 1;
+    }
+  }
+}//end_test
+
+/* --------------------------------------------------------------------- */
+int main(void) {
+  time_t tInicial;
+  for(int i=1;i<=48;i++){
+   if(test()){
+    tInicial= time(NULL);
+    cout << fibonacci4(n) << "\t\t\t";
+    cout << (difftime(time(NULL), tInicial)<< "\n";}
+   else
+    cout << "não calcula exato este número da série";
+}
+
+
+
